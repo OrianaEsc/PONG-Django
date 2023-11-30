@@ -1,7 +1,7 @@
 from itertools import product
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
-from ventas.models import Productos
+from ventas.models import Productos, Campanas
 from .form import FormClientes, LoginForm
 from .form import FormClientes
 
@@ -28,7 +28,10 @@ def contacto(request):
 
 
 def campanas(request):
-    datos = {}
+    datos = {
+        'campanas': Campanas.objects.all()
+    }
+
     return render (request, 'campanas.html', datos)
 
 def nosotros(request):
