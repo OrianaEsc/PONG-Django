@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% load static %} 
+
+{% block content %}
+<body id="fondo" >
+<h1 id="titulo"><b>REALIZAR COMPRA</b></h1><br>
+<br>
+<div class="table-container">
+
+    {% for item in items %}
+<tr>
+    <td>{{ item.producto }}</td>
+    <td>{{ item.precio }}</td>
+    <td>{{ item.cantidad }}</td>
+    <td>{{ item.subtotal }}</td>
+</tr>
+{% endfor %}
+</div>
+
+
+<hr class="custom-line">
+<footer>
+    <div class="footer-buttons">
+        <button class="footer-button">
+            <a href="https://www.facebook.com/profile.php?id=61553058951757mibextid=ZbWKwL"><img src="img/face4.png" alt="Botón 1"></a>
+            
+        </button>
+        <button class="footer-button">
+            <a href="https://instagram.com/marketingkreativo_?igshid=NzZlODBkYWE4Ng=="><img src="img/ig2.png" alt="Botón 2"></a>
+        </button>
+        <button class="footer-button">
+            <a href="https://ar.linkedin.com/"><img src="img/linke2.png" alt="Botón 3"></a>
+        </button>
+    </div>
+</footer>
+</html>
+{% endblock %}

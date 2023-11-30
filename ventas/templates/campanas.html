@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+        <h1 id="tituloindex">NUESTRAS<br>
+            <b>CAMPAÑAS <br>
+            </b></h1>
+        <br>
+
+        <p>Ofrecemos un abanico de servicios en nuestra <br>
+        empresa de publicidad, que se agrupan en cuatro <br> 
+        áreas claves, cada una de estas áreas abarca<br>
+        estrategias especializadas para promocionar<br> 
+        productos y servicios a nustros clientes.
+        </p>
+        <br>
+        <button type="submit" id="botontres">
+            <a href="{% url 'tipocamp' %}"><b>VER MÁS</b></a>
+        </button>
+    
+        </div>
+    <div class="col">
+        <div class="contenedor">
+            <div class="fila">
+                <img src="{% static 'img\campañas1.png' %}" alt="Imagen 1" class="imgserv" height="500px" >
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+<br>
+<br>
+<footer>
+    <div class="footer-buttons">
+        <button class="footer-button">
+            <a href="https://www.facebook.com/profile.php?id=61553058951757mibextid=ZbWKwL"><img src="img/face4.png" alt="Botón 1"></a>
+            
+        </button>
+        <button class="footer-button">
+            <a href="https://instagram.com/marketingkreativo_?igshid=NzZlODBkYWE4Ng=="><img src="img/ig2.png" alt="Botón 2"></a>
+        </button>
+        <button class="footer-button">
+            <a href="https://ar.linkedin.com/"><img src="img/linke2.png" alt="Botón 3"></a>
+        </button>
+    </div>
+</footer>
+{% endblock %}

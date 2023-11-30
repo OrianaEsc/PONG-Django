@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<body>
+  <div class="row">
+    {% for Campanas in campanas %}
+        <div class="col-md-4 mb-1">
+            <div class="card shadow-sm">
+
+                <div class="card-body">
+                    <p class="card-text"><br> {{ campanas.nombre_cam }} <br></p>
+                    <p class="card-text">
+                      <br>                   
+                    </p>
+                    <p class="card-text">Descripción: {{ campanas.descripcion_camp  }}</p>
+                </div>
+                {% if perms.campanas.change_ejemplar or perms.campanas.delete_ejemplar %}
+                <div class="card-footer">
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        {% if perms.campanas.change_ejemplar %}
+                            <a href="{% url 'campanas_update' ejemplar.pk %}" class="btn btn-warning btn-sm">
+                                Editar
+                            </a>
+                        {% endif %}
+
+                        {% if perms.campanas.delete_ejemplar %}
+                            <a href="{% url 'campanas_delete' ejemplar.pk %}" class="btn btn-danger btn-sm">
+                                Eliminar
+                            </a>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+</div>
+
+<div class="row">
+    <div class="col-12 d-flex justify-content-center">
+        {% if page_obj.has_other_pages %}
+        <div class="p-3 pb-0">
+            <ul class="pagination">
+                {% if page_obj.has_previous %}
+                    <li class="page-item">
+                        <a href="?page={{ page_obj.previous_page_number }}" class="page-link">
+                            Anterior
+                        </a>
+                    </li>
+                {% else %}
+                    <li class="page-item disabled">
+                        <span class="page-link">Anterior</span>
+                    </li>
+                {% endif %}
+
+                {% for i in page_obj.paginator.page_range %}
+                    {% if page_obj.number == i %}
+                        <li class="page-item active" aria-current="page">
+                            <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+                        </li>
+                    {% else %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+
+                {% if page_obj.has_next %}
+                    <li class="page-item">
+                        <a href="?page={{ page_obj.next_page_number }}" class="page-link">
+                            Siguiente
+                        </a>
+                    </li>
+                {% else %}
+                    <li class="page-item disabled">
+                        <span class="page-link">Siguiente</span>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    {% endif %}
+    </div>
+</div>
+</div>
+
+</body>
+
+<br>
+<footer>
+    <div class="footer-buttons">
+        <button class="footer-button">
+            <a href="https://www.facebook.com/profile.php?id=61553058951757&mibextid=ZbWKwL"><img src="img/face4.png" alt="Botón 1"></a>
+            
+        </button>
+        <button class="footer-button">
+            <a href="https://instagram.com/marketingkreativo_?igshid=NzZlODBkYWE4Ng=="><img src="img/ig2.png" alt="Botón 2"></a>
+        </button>
+        <button class="footer-button">
+            <a href="https://ar.linkedin.com/"><img src="img/linke2.png" alt="Botón 3"></a>
+        </button>
+    </div>
+</footer>
+{% endfor %}

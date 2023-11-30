@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% load static %}
+ 
+{% block content %}
+<div class="container text-center">
+    <h1 id="titulo"><b>PROYECTOS</b></h1>
+    <br>
+    <div
+    {% comment %} class="image-container" {% endcomment %}
+    class="container text-center"
+    >
+
+    <div class="container text-center">
+        <div class="row">
+          <div class="col">
+            <img src="{% static 'img\cerv.jpg' %}" class="rounded" id="imgcerv1" alt="cerveza" height="300px">
+
+          </div>
+          <div class="col-6">
+            <img src="{% static 'img\edesa.jpg' %}" class="rounded" id="imgedesa" alt="edesa" height="300px">
+
+          </div>
+          <div class="col">
+            <img src="{% static 'img\LICO.jpg' %}" class="rounded" id="imgempana" alt="empanada" height="300px">
+
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <img src="{% static 'img\dont.jpg' %}" class="rounded" id="imgedesa" alt="Imagen Horizontal" height="250px">
+
+          </div>
+          <div class="col-5">
+            <img src="{% static 'img\cervnegra.jpg' %}" class="rounded" id="imgcerv1" alt="Imagen Vertical" height="250px">
+
+          </div>
+          <div class="col">
+            <img src="{% static 'img\HABEMIS.jpg' %}" class="rounded" id="imgedesa" alt="Imagen Horizontal" height="200px">
+
+          </div>
+        </div>
+      </div>
+
+        {% comment %} <div class="image">
+            <img src="{% static 'img\cerv.jpg' %}" class="rounded" id="imgcerv1" alt="cerveza">
+        </div>
+        <div class="image">
+            <img src="{% static 'img\edesa.jpg' %}" class="rounded" id="imgedesa" alt="edesa">
+        </div>
+        <div class="image">
+            <img src="{% static 'img\LICO.jpg' %}" class="rounded" id="imgempana" alt="empanada">
+        </div>
+        <div class="image horizontal">
+            <img src="{% static 'img\dont.jpg' %}" class="rounded" id="imgedesa" alt="Imagen Horizontal">
+        </div>
+        <div class="image vertical">
+            <img src="{% static 'img\cervnegra.jpg' %}" class="rounded" id="imgcerv1" alt="Imagen Vertical">
+        </div>
+        <div class="image horizontal">
+            <img src="{% static 'img\HABEMIS.jpg' %}" class="rounded" id="imgedesa" alt="Imagen Horizontal">
+        </div>
+    </div>
+</div>
+</body>
+<br>
+<br> {% endcomment %}
+<footer>
+<div class="footer-buttons">
+    <button class="footer-button">
+        <a href="https://www.facebook.com/profile.php?id=61553058951757&mibextid=ZbWKwL"><img src="img/face4.png" alt="Botón 1"></a>
+        
+    </button>
+    <button class="footer-button">
+        <a href="https://instagram.com/marketingkreativo_?igshid=NzZlODBkYWE4Ng=="><img src="img/ig2.png" alt="Botón 2"></a>
+    </button>
+    <button class="footer-button">
+        <a href="https://ar.linkedin.com/"><img src="img/linke2.png" alt="Botón 3"></a>
+    </button>
+</div>
+</footer>
+{% endblock %}

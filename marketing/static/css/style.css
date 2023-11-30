@@ -1,0 +1,226 @@
+body{
+    background-color: #903000;
+}
+
+.boton{
+    background-color: #fda075;
+    border-radius: 15%;
+    border-color: #e04d08;
+    border-style: double;
+    padding: 8px 15px;
+}
+
+header {
+    background-color: #b44715;
+    color: #ede9e7;
+    padding: 10px;
+    height: auto;
+}
+
+.navbar-brand img {
+    height: 80px; /* Ajusta la altura del logo */
+}
+
+.navbar-nav {
+    text-align: center; /* Centra los elementos del menú */
+}
+
+.nav-link {
+    padding: 10px; /* Ajusta el espaciado de los enlaces */
+    color: white;
+}
+
+
+#titulo{
+    font-family: Verdana;
+    text-align: center;
+    color: #b44715;
+}
+
+
+#formularioo {
+    text-align: left;
+    border: 10px solid #d1d0ce; 
+    border-radius: 10px;
+    background-color: #d1d0ce;
+    padding: 10px 20px;
+    width: 100%; /* Ajuste el ancho del formulario al 100% en dispositivos móviles */
+    max-width: 800px; /* Establezca un ancho máximo para el formulario en pantallas más grandes si es necesario */
+    margin: 0 auto; /* Centra el formulario en pantallas más grandes */
+}
+
+
+.formulario-container {
+    text-align: center; 
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+}
+
+.botondos{
+    background-color:#b44715;
+    width: 80px;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    color:#ede9e7;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+#color{
+    color: #ede9e7;
+    padding: 10px 30px;
+}
+
+#fondo{
+    background-color: #ede9e7;
+}
+
+.footer-buttons {
+    text-align: center;
+}
+
+.footer-button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    outline: none;
+}
+
+.footer-button img {
+    display: block; 
+    margin: 0 auto; 
+}
+
+.image-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.image {
+    flex: 0 0 calc(33.33% - 20px);
+    margin: 10px;
+    box-sizing: border-box;
+}
+
+#imgcerv1,
+#imgedesa,
+#imgempana,
+#imgedesa-horizontal,
+#imgcerv1-vertical,
+#imgedesa-horizontal {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+@media (max-width: 767px) {
+    .image {
+        flex: 0 0 100%; /* Cambia a ocupar el 100% del ancho en pantallas pequeñas */
+    }
+}
+
+p{
+    color:#b44715;
+    text-align: left;
+}
+
+#botontres{
+    background-color:#b44715;
+    width: 180px;
+    height: 45px;
+    border-radius: 10px;
+    border: none;
+    color:#fffcfc;
+    align-items: center;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+
+#tituloindex{
+    font-family: Verdana;
+    text-align: left;
+    color: #b44715;
+}
+
+#inicio{
+    text-align: right;
+    padding: 20px 40px;
+}
+
+
+.contenedor {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.fila {
+    display: flex;
+    justify-content: space-between; 
+    margin-bottom: 10px; 
+}
+
+.imgserv {
+    width: 50%;
+    max-width: 400px;
+    height: auto;
+    padding: 2px 8px;
+    border-radius: 15%;
+}
+
+.box{
+    background-color:#b44715;
+    border-radius: none;
+    color:#ede9e7;
+    padding-block: 10%;
+    width: 15%;
+    margin-bottom: 50%;
+}
+
+
+
+.login-form {
+    background-color: #8f8f8f;
+    border-radius: 10px;
+    border-color: #8f8f8f;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 20px;
+    width: 35%; 
+    max-width: 800px;
+    margin: 0 auto; 
+    text-align: left;
+}
+
+label {
+    margin-top: 10px;
+}
+
+input {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#logo{
+    align-items: center;
+}
+.table-container {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    border: 2px;
+}
+
+td {
+    border: 2px;
+    padding: 50px;
+}
+

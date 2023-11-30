@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1 id= "titulo1"><b>Tu visión, nuestra<r></r>
+                creatividad; juntos, creamos <r></r>
+                historias que perduran en la <r></r>
+                mente tu audiencia</b></h1>
+
+            <br>
+
+            <p>A través de  creativas estrategias en redes sociales, radios, televisión y afiches, logramos que tu marca destaque, llegando de manera efectiva a tu audiencia y generando impacto duradero. Nuestro éxito se mide en sonrisas satisfechas y el crecimiento que las marcas que confían en nosostros.</p>
+        </div>    
+    
+        <div class="col">  
+            <img  src="{% static 'img\design.png' %}" id="inicio" alt="diseño" height="450px">
+        </div>
+        
+
+</div>
+        <button type= "submit" id="botontres">
+                    <a href="{% url 'contacto' %}">CONTACTANOS</a>
+                </button>
+</body>
+
+<br>
+<br>
+<footer>
+    <div class="footer-buttons">
+        <button class="footer-button">
+            <a href="https://www.facebook.com/profile.php?id=61553058951757mibextid=ZbWKwL"><img src="img/face4.png" alt="Botón 1"></a>
+        </button>
+        <button class="footer-button">
+            <a href="https://instagram.com/marketingkreativo_?igshid=NzZlODBkYWE4Ng=="><img src="img/ig2.png" alt="Botón 2"></a>
+        </button>
+        <button class="footer-button">
+            <a href="https://ar.linkedin.com/"><img src="img/linke2.png" alt="Botón 3"></a>
+        </button>
+    </div>
+</footer>
+</html>
+{% endblock %}

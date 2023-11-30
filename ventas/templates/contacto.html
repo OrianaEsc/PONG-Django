@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="formulario-container"> 
+    <section id="formularioo">
+        <form class="row g-3">
+            <h1 id="titulo"><b>CONTÁCTANOS</b></h1>
+            <div class="col-md-6">
+              <label for="inputEmail4" class="form-label"> <b>Nombre:</b></label>
+              <input type="email" class="form-control" id="inputNombre">
+            </div>
+            
+            <div class="col-md-6">
+              <label for="inputPassword4" class="form-label"> <b>Apellido:</b></label>
+              <input type="password" class="form-control" id="inputApellido">
+            </div>
+            <div class="col-md-6">
+                <label for="inputEmail4" class="form-label"> <b>Teléfono:</b></label>
+                <input type="email" class="form-control" id="inputTelefono">
+              </div>
+              <div class="col-md-6">
+                <label for="inputPassword4" class="form-label"> <b>Email:</b></label>
+                <input type="password" class="form-control" id="inputEmail4">
+            </div>
+            <div class="col-md-6">
+                <label for="inputEmail4" class="form-label"> <b>Área de interes:</b></label>
+                <input type="email" class="form-control" id="inputArea">
+              </div>
+              <div class="col-md-6">
+                <label for="inputPassword4" class="form-label"> <b>Otros:</b></label>
+                <input type="password" class="form-control" id="inputOther">
+              </div>
+            <br>
+            <div class="col-12">
+                <button type="submit" class="botondos"><b>ENVIAR</b></button>
+            </div>
+
+        </form>
+    </section>
+</div>
+
+
+{% endblock %}
