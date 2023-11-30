@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+
+
+    <body id="fondo">
+        <br>
+        <br>
+        <div class="row justify-content-center mt-5">
+            <div class="col-12 col-md-10 col-lg-6">
+                <br>
+                <div >
+                    <form action="." method="POST" novalidate>
+                        {% csrf_token %}
+                        
+                        <div>
+                            <div class="card">
+                                <h1 id="titulo"><b>Registrate gratis</b></h1>
+
+                                {{ form | crispy }}
+                            </div>
+                        </div>
+
+                        <div class="card-footer">
+                            <button class="btn btn-primary float-end" type="submit">Registrarse</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+                
+                <br>
+        </div>
+        
+    </body>
+{% endblock %}
