@@ -19,6 +19,10 @@ def inicio(request):
     datos = {}
     return render (request, 'index.html', datos)
 
+def tipopago(request):
+    datos = {}
+    return render (request, 'tipopago.html', datos)
+
 def contacto(request):
     datos = {}
     return render (request, 'contacto.html', datos)
@@ -45,6 +49,24 @@ def tipocamp(request):
         'campana': campanas
     }
     return render (request,'tipocamp.html', context)
+
+def FacturaFinal(request, cliente_id, campana_id):
+    user = User.objects.get(id=cliente_id)
+    campana = Campanas.objects.get(id=campana_id)
+
+    if request.method == 'GET':
+        form = Factura(request.POST)
+        if form.is_valid():
+            fact = form.save(commit=False)
+            fact.cliente = cliente
+            fact.save()
+            
+    context = {
+        'form' : form,
+        'cliente' : cliente 
+    }
+
+    return render (request, 'factura.html', context)
 
 def register(request):
     if request.method=='GET':
@@ -87,7 +109,7 @@ def agregarcarrito (request, User_id, Campana_id, Ventas):
 
     ventas = Ventas(
         user = User,
-        campana = Campanas
+        campana = Campanas,
         carrito = True
     )
     ventas.save()

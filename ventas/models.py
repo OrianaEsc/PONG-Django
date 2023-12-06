@@ -38,6 +38,12 @@ class Ventas(models.Model):
     campana = models.ForeignKey("Campanas", on_delete=models.CASCADE)
     empleado = models.ForeignKey("Empleados", on_delete=models.DO_NOTHING)
 
+class FacturaFinal(models.Model):
+    cliente = models.ForeignKey('Clientes', on_delete=models.CASCADE)
+    campanaeleg = models.ForeignKey('Campanas', on_delete=models.CASCADE)
+    fecha_facfin = models.DateField(auto_now_add=True)
+    hora_facfin = models.TimeField(auto_now_add=True)
+
 class Tipo_De_Contrato(models.Model):
     tipo_contrato = models.CharField(max_length=50)
 
