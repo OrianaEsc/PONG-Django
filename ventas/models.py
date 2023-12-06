@@ -2,7 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User
 
 class Clientes(models.Model):
-   
     nombre_cli = models.CharField (max_length=20)
     apellido_cli = models.CharField(max_length=20)
     dni_cli = models.CharField(max_length=9)

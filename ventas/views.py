@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate, login
 from ventas.models import Productos, Campanas, User
 from .form import FormClientes, LoginForm
 from .form import FormClientes
+from django.contrib.auth import logout
 
 # #nose
 from django.contrib.auth.models import Group
@@ -11,10 +12,16 @@ from imaplib import _Authenticator
 from django.contrib import messages # Para mensajes de sesión
 
 #EXEQUIEL
-from .carro import carro
+
 from django.shortcuts import redirect
 
 # Create your views here.
+def mi_logout(request):
+    logout(request)
+    # Limpia la sesión y redirige a la página deseada después del logout
+    return redirect('login')
+
+
 def inicio(request):
     datos = {}
     return render (request, 'index.html', datos)
@@ -66,7 +73,7 @@ def register(request):
         return render(request, 'registration/register.html', {'form': FormClientes})
 
     if request.method == 'POST':
-        form = FormClientes(request.POST, request.FILES)
+        form = FormClientes(request.POST)
 
         if form.is_valid():
             user = form.save(commit=False)

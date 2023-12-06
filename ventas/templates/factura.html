@@ -12,13 +12,13 @@
 
 {% for e in user %}
 
-{{ e.nombre }}
+{{ e.nombre_cli }}
 
 {% endfor %}
 
 {% for i in campana %}
 
-{{ i.nom_cam }} Precio: {{ i.monto_cam }}
+{{ i.nombre_cam }} Precio: {{ i.monto_cam }}
 
 {% endfor %}
 {% endblock %}
