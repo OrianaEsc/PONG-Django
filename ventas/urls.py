@@ -15,7 +15,7 @@ urlpatterns = [
     path('accounts/register/', views.register, name='registrarse'),
     path('carrito/', views.carro, name= 'carrito'),
     path('carro/', views.Carrito, name='carro'),
-    path('factura/<int:user_id><int:campana_id>/', views.FacturaFinal, name='factura'),
+    path('factura/', views.FacturaFinal, name='factura'),
     path('tipopago/', views.tipopago, name='tipopago')
 
 ]

@@ -50,20 +50,13 @@ def tipocamp(request):
     }
     return render (request,'tipocamp.html', context)
 
-def FacturaFinal(request, cliente_id, campana_id):
-    user = User.objects.get(id=cliente_id)
-    campana = Campanas.objects.get(id=campana_id)
+def FacturaFinal(request):
+    user = User.objects.all()
+    campana = Campanas.objects.all()
 
-    if request.method == 'GET':
-        form = Factura(request.POST)
-        if form.is_valid():
-            fact = form.save(commit=False)
-            fact.cliente = cliente
-            fact.save()
-            
     context = {
-        'form' : form,
-        'cliente' : cliente 
+        'user' : user,
+        'campana' : campana
     }
 
     return render (request, 'factura.html', context)

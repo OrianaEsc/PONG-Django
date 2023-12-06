@@ -10,9 +10,15 @@
 
 <h1 id="titulo">FACTURA</h1>
 
-<form method="GET">
-    {% csrf_token %}
-    {{ form.as_p }}
-</form>
+{% for e in user %}
 
+{{ e.nombre }}
+
+{% endfor %}
+
+{% for i in campana %}
+
+{{ i.nom_cam }} Precio: {{ i.monto_cam }}
+
+{% endfor %}
 {% endblock %}
