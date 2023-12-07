@@ -181,6 +181,9 @@ def restar_producto(request, producto_id):
     carro.restar(producto=Productos)
     return redirect("tienda")
 
+
+
+
 # def carrito(request):
 #     print(request)
     # carro = carro(request)
@@ -188,3 +191,4 @@ def restar_producto(request, producto_id):
     # items = carro.get_items()
     # datos = {'items': items}
     # return render(request, 'carrito.html', datos)
+
