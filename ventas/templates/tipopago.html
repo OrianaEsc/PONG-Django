@@ -1,13 +1,89 @@
 {% extends 'base.html' %}
 
-{% load static %}
-
 {% block content %}
-
 <div>
-    <button type= "submit" id="botontres">
-        <a href="{% url 'factura' %}">COMPRAR</a>
-    </button>
+  <h2 style="text-align: center;">Carrito de Compras</h2>
+  <h1> Usted está comprando: </h1>
+  <div id="productoSeleccionado"></div>
+  <div id="productoInfo"></div>
+  <p>Total a pagar: <span id="totalPagar">0</span></p>
+  
+  <h1>Seleccione la forma de pago: </h1>
+
+  <button>
+    <a href="{% url 'factura' %}"> Efectivo o depósito bancario </a>
+  </button>
+
+  <button>
+    <a href="{% url 'factura' %}"> Paypal </a>
+  </button>
+
+  <button>
+    <a href="{% url 'factura' %}"> Mercado Pago </a>
+  </button>
+
 </div>
 
+<div>
+  <button id="vaciarLista" type="submit" id="botontres">
+    <a href="{% url 'tipocamp' %}">CANCELAR COMPRA</a>
+  </button>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<script>
+  // Recupera la lista de productos del localStorage
+  var productos = JSON.parse(localStorage.getItem("productosSeleccionados")) || [];
+  console.log(productos); // Verifica la lista de productos en la consola
+
+  // Guarda la información en el localStorage para ser recuperada en la página de factura
+  localStorage.setItem("productosParaFactura", JSON.stringify(productos));
+
+  // Genera el contenido HTML para los productos seleccionados
+  var productoSeleccionadoDiv = document.getElementById("productoSeleccionado");
+  var productoInfoDiv = document.getElementById("productoInfo");
+
+  // Limpiar la lista de productos en el localStorage después de mostrar
+  localStorage.removeItem("productosSeleccionados");
+
+  // Utiliza una variable para rastrear si el contenido ya se mostró
+  var contenidoMostrado = true;
+
+  // Variable para almacenar el total a pagar
+  var totalPagar = 0;
+
+  productos.forEach(function (producto) {
+    var productoHTML = document.createElement("div");
+    productoHTML.innerHTML = `
+      <p><strong>Nombre:</strong> ${producto.nombre}</p>
+      <p><strong>Descripción:</strong> ${producto.descripcion}</p>
+      <p><strong>Monto:</strong> ${producto.monto}</p>
+      <hr>
+    `;
+    productoSeleccionadoDiv.appendChild(productoHTML);
+
+    // Actualiza el contenido del elemento productoInfoDiv solo si aún no se ha mostrado
+    if (!contenidoMostrado) {
+      var productoInfoHTML = document.createElement("div");
+      productoInfoHTML.innerHTML = `
+        <p><strong>Nombre:</strong> ${producto.nombre}</p>
+        <p><strong>Descripción:</strong> ${producto.descripcion}</p>
+        <p><strong>Monto:</strong> ${producto.monto}</p>
+        <hr>
+      `;
+      productoInfoDiv.appendChild(productoInfoHTML);
+      
+      contenidoMostrado = true; // Marca que el contenido ha sido mostrado
+    }
+
+    // Suma el monto al totalPagar
+    totalPagar += parseFloat(producto.monto);
+  });
+
+  // Muestra el total a pagar en el HTML
+  document.getElementById("totalPagar").textContent = totalPagar.toFixed(2);
+</script>
+
 {% endblock %}
+

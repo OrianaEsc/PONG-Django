@@ -5,71 +5,111 @@
 {% block content %}
   <div class="row">
     {% for i in campana %}
-        <div class="col-md-4 mb-1">
-            <div class="card shadow-sm">
+      <div class="col-md-4 mb-1">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <p class="card-text"><br> {{ i.nombre_cam }} <br></p>
+            <p class="card-text"><br></p>
+            <p class="card-text"> <b>Descripción:</b> {{ i.descripcion_camp }}</p>
+            <p class="card-text"> <b>Precio:</b> {{ i.monto_cam }}</p>
 
-                <div class="card-body">
-                    <p class="card-text"><br> {{ i.nombre_cam }} <br></p>
-                    <p class="card-text">
-                      <br>                   
-                    </p>
-                    <p class="card-text">Descripción: {{ i.descripcion_camp  }}</p>
-                    <button type= "submit" id="botontres">
-                        <a href="{% url 'tipopago' %}">AGREGAR A CARRITO</a>
-                    </button>
-                </div>
-            </div>
+            <button type="button" class="botonAgregarCarrito" data-nombre="{{ i.nombre_cam }}" data-descripcion="{{ i.descripcion_camp }}" data-monto="{{ i.monto_cam }}">
+              AGREGAR A CARRITO
+            </button>
+          </div>
         </div>
-</div>
+      </div>
+    {% endfor %}
+  </div>
 
-<div class="row">
+  <button id="continuarComprandoBtn">
+    <a href="{% url 'tipopago' %}">CONTINUAR COMPRANDO</a>
+  </button>
+
+  <div class="row">
     <div class="col-12 d-flex justify-content-center">
-        {% if page_obj.has_other_pages %}
+      {% if page_obj.has_other_pages %}
         <div class="p-3 pb-0">
-            <ul class="pagination">
-                {% if page_obj.has_previous %}
-                    <li class="page-item">
-                        <a href="?page={{ page_obj.previous_page_number }}" class="page-link">
-                            Anterior
-                        </a>
-                    </li>
-                {% else %}
-                    <li class="page-item disabled">
-                        <span class="page-link">Anterior</span>
-                    </li>
-                {% endif %}
+          <ul class="pagination">
+            {% if page_obj.has_previous %}
+              <li class="page-item">
+                <a href="?page={{ page_obj.previous_page_number }}" class="page-link">
+                  Anterior
+                </a>
+              </li>
+            {% else %}
+              <li class="page-item disabled">
+                <span class="page-link">Anterior</span>
+              </li>
+            {% endif %}
 
-                {% for i in page_obj.paginator.page_range %}
-                    {% if page_obj.number == i %}
-                        <li class="page-item active" aria-current="page">
-                            <a class="page-link" href="?page={{ i }}">{{ i }}</a>
-                        </li>
-                    {% else %}
-                        <li class="page-item">
-                            <a class="page-link" href="?page={{ i }}">{{ i }}</a>
-                        </li>
-                    {% endif %}
-                {% endfor %}
+            {% for i in page_obj.paginator.page_range %}
+              {% if page_obj.number == i %}
+                <li class="page-item active" aria-current="page">
+                  <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+                </li>
+              {% else %}
+                <li class="page-item">
+                  <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+                </li>
+              {% endif %}
+            {% endfor %}
 
-                {% if page_obj.has_next %}
-                    <li class="page-item">
-                        <a href="?page={{ page_obj.next_page_number }}" class="page-link">
-                            Siguiente
-                        </a>
-                    </li>
-                {% else %}
-                    <li class="page-item disabled">
-                        <span class="page-link">Siguiente</span>
-                    </li>
-                {% endif %}
-            </ul>
+            {% if page_obj.has_next %}
+              <li class="page-item">
+                <a href="?page={{ page_obj.next_page_number }}" class="page-link">
+                  Siguiente
+                </a>
+              </li>
+            {% else %}
+              <li class="page-item disabled">
+                <span class="page-link">Siguiente</span>
+              </li>
+            {% endif %}
+          </ul>
         </div>
-    {% endif %}
+      {% endif %}
     </div>
-</div>
-</div>
+  </div>
 
-</body>
 
-{% endfor %}
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $(".botonAgregarCarrito").on("click", function(e) {
+        e.preventDefault();
+
+        var nombre = $(this).data("nombre");
+        var descripcion = $(this).data("descripcion");
+        var monto = $(this).data("monto");
+
+        // Obtén la lista de productos del localStorage
+        var productos = JSON.parse(localStorage.getItem("productosSeleccionados")) || [];
+
+        // Agrega el producto actual a la lista
+        var producto = { nombre: nombre, descripcion: descripcion, monto: monto };
+        productos.push(producto);
+
+        // Almacena la lista actualizada en localStorage
+        localStorage.setItem("productosSeleccionados", JSON.stringify(productos));
+      });
+
+      $("#continuarComprandoBtn").on("click", function(e) {
+        e.preventDefault();
+
+      // Redirige a la página de tipopago con la lista de productos como parámetro
+      var productos = JSON.parse(localStorage.getItem("productosSeleccionados")) || [];
+      var params = productos
+        .map(
+          (p) =>
+            `nombre=${encodeURIComponent(p.nombre)}&descripcion=${encodeURIComponent(
+              p.descripcion
+            )}&monto=${encodeURIComponent(p.monto)}`
+        )
+        .join("&");
+      window.location.href = "{% url 'tipopago' %}?" + params;
+      });
+    });
+  </script>
 {% endblock %}
+

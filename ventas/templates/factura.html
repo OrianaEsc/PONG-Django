@@ -2,23 +2,43 @@
 
 {% load static %}
 
-{% load crispy_forms_tags %}
-
 {% block content %}
 
 <title>Factura</title>
 
 <h1 id="titulo">FACTURA</h1>
 
+<h2> Comprobante de pago </h2>
+<p> Fecha: 14/12/2023</p>
+<p>Hora: </p>
+<div id="productoSeleccionadoFactura"></div>
+<div id="productoInfo"></div>
+<p>Cliente: </p>
+
 {% for e in user %}
-
-{{ e.nombre_cli }}
-
+  <p>{{ e.nombre_cli }}</p>
 {% endfor %}
 
-{% for i in campana %}
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
-{{ i.nombre_cam }} Precio: {{ i.monto_cam }}
+<script>
+  // Recupera la lista de productos del localStorage
+  var productosParaFactura = JSON.parse(localStorage.getItem("productosParaFactura")) || [];
+  console.log(productosParaFactura); // Verifica la lista de productos en la consola
 
-{% endfor %}
+  // Genera el contenido HTML para los productos seleccionados en la factura
+  var productoSeleccionadoDiv = document.getElementById("productoSeleccionadoFactura");
+
+  productosParaFactura.forEach(function (producto) {
+    var productoHTML = document.createElement("div");
+    productoHTML.innerHTML = `
+      <p><strong>Nombre:</strong> ${producto.nombre}</p>
+      <p><strong>Descripción:</strong> ${producto.descripcion}</p>
+      <p><strong>Monto:</strong> ${producto.monto}</p>
+      <hr>
+    `;
+    productoSeleccionadoDiv.appendChild(productoHTML);
+  });
+</script>
+
 {% endblock %}

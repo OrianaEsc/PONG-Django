@@ -19,7 +19,7 @@ class FormaPago(models.Model):
     vencimiento = models.CharField(max_length=4)
 
 class Campanas(models.Model):
-    productos = models.ForeignKey("Productos", on_delete=models.DO_NOTHING)
+    productos = models.ForeignKey("Productos", on_delete=models.CASCADE)
     tipo_cam = models.CharField(max_length=20)
     nombre_cam = models.CharField(max_length=20)
     descripcion_camp = models.TextField()
@@ -33,7 +33,8 @@ class Empleados(models.Model):
     dom_emp = models.CharField(max_length=40)
 
 class Ventas(models.Model):
-    user_cli = models.ForeignKey(User, on_delete=models.CASCADE)
+    #  user_cli = models.ForeignKey(User, on_delete=models.CASCADE)
+    cliente = models.ForeignKey("Clientes", on_delete=models.CASCADE)
     campana = models.ForeignKey("Campanas", on_delete=models.CASCADE)
     empleado = models.ForeignKey("Empleados", on_delete=models.DO_NOTHING)
 
