@@ -10,14 +10,6 @@ class Clientes(models.Model):
     dom_cli = models.CharField(max_length=40)
     email_cli = models.EmailField(max_length=254)
 
-class FormaPago(models.Model):
-    nombrepago = models.CharField(max_length=50)
-    nombre = models.CharField(max_length=40)
-    dni = models.CharField(max_length=9)
-    num_tarjeta = models.CharField(max_length=16)
-    codigo_seg = models.CharField(max_length=3)
-    vencimiento = models.CharField(max_length=4)
-
 class Campanas(models.Model):
     productos = models.ForeignKey("Productos", on_delete=models.CASCADE)
     tipo_cam = models.CharField(max_length=20)
@@ -31,12 +23,11 @@ class Empleados(models.Model):
     dni_emp = models.CharField(max_length=9)
     tel_emp = models.CharField(max_length=22)
     dom_emp = models.CharField(max_length=40)
-
 class Ventas(models.Model):
-    #  user_cli = models.ForeignKey(User, on_delete=models.CASCADE)
-    cliente = models.ForeignKey("Clientes", on_delete=models.CASCADE)
+    user_cli = models.ForeignKey(User, on_delete=models.CASCADE)
+    # cliente = models.ForeignKey("Clientes", on_delete=models.CASCADE)
     campana = models.ForeignKey("Campanas", on_delete=models.CASCADE)
-    empleado = models.ForeignKey("Empleados", on_delete=models.DO_NOTHING)
+    # empleado = models.ForeignKey("Empleados", on_delete=models.DO_NOTHING)
 
 class FacturaFinal(models.Model):
     cliente = models.ForeignKey('Clientes', on_delete=models.CASCADE)
@@ -56,7 +47,7 @@ class Contratos(models.Model):
 class Detalles (models.Model):
     contrato = models.ForeignKey("Contratos", on_delete=models.DO_NOTHING)
     nro_factura = models.ForeignKey("Facturas", on_delete=models.DO_NOTHING)
-    forma_pago = models.ForeignKey("FormaPago", on_delete=models.DO_NOTHING)
+    # forma_pago = models.ForeignKey("FormaPago", on_delete=models.DO_NOTHING)
     fecha = models.DateField(auto_now_add=True)
     hora = models.TimeField(auto_now_add=True)
 
