@@ -149,7 +149,7 @@ p{
 
 #inicio{
     text-align: right;
-    padding: 20px 40px;
+    padding: 20px 30px;
 }
 
 
@@ -166,13 +166,6 @@ p{
     margin-bottom: 10px; 
 }
 
-.imgserv {
-    width: 50%;
-    max-width: 400px;
-    height: auto;
-    padding: 2px 8px;
-    border-radius: 15%;
-}
 
 .box{
     background-color:#b44715;

@@ -9,8 +9,25 @@
 <h1 id="titulo">FACTURA</h1>
 
 <h2> Comprobante de pago </h2>
-<p> Fecha: 14/12/2023</p>
-<p>Hora: </p>
+<p><span id="fecha"></span></p>
+<p><span id="hora"></span></p>
+
+    <script>
+        const fechaElemento = document.getElementById('fecha');
+        const horaElemento = document.getElementById('hora');
+
+        function mostrarFechaHora() {
+            const fechaHoraActual = new Date();
+            const fechaFormateada = fechaHoraActual.toLocaleDateString(); // Formatea la fecha
+            const horaFormateada = fechaHoraActual.toLocaleTimeString(); // Formatea la hora
+
+            fechaElemento.textContent = `Fecha: ${fechaFormateada}`;
+            horaElemento.textContent = `Hora: ${horaFormateada}`;
+        }
+
+        mostrarFechaHora();
+    </script>
+
 <div id="productoSeleccionadoFactura"></div>
 <div id="productoInfo"></div>
 <p>Cliente: </p>
