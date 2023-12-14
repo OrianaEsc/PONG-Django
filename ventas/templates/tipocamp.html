@@ -6,14 +6,15 @@
   <div class="row">
     {% for i in campana %}
       <div class="col-md-4 mb-1">
+        <br>
         <div class="card shadow-sm">
           <div class="card-body">
-            <p class="card-text"><br> {{ i.nombre_cam }} <br></p>
+            <h1 class="card-text" id="titulo"><b><br> {{ i.nombre_cam }} <br></b></h1>
             <p class="card-text"><br></p>
             <p class="card-text"> <b>Descripción:</b> {{ i.descripcion_camp }}</p>
             <p class="card-text"> <b>Precio:</b> {{ i.monto_cam }}</p>
 
-            <button type="button" class="botonAgregarCarrito" data-nombre="{{ i.nombre_cam }}" data-descripcion="{{ i.descripcion_camp }}" data-monto="{{ i.monto_cam }}">
+            <button type="button" class="botonAgregarCarrito" id="botontres" data-nombre="{{ i.nombre_cam }}" data-descripcion="{{ i.descripcion_camp }}" data-monto="{{ i.monto_cam }}">
               AGREGAR A CARRITO
             </button>
           </div>
@@ -22,8 +23,8 @@
     {% endfor %}
   </div>
 
-  <button id="continuarComprandoBtn">
-    <a href="{% url 'tipopago' %}">CONTINUAR COMPRANDO</a>
+  <button id="continuarComprandoBtn" class="btn btn-success">
+    <a href="{% url 'tipopago' %}" style="color: white"> <b>CONTINUAR COMPRANDO </b> </a>
   </button>
 
   <div class="row">
@@ -92,6 +93,8 @@
 
         // Almacena la lista actualizada en localStorage
         localStorage.setItem("productosSeleccionados", JSON.stringify(productos));
+
+        alert('Campaña añadida al carrito');
       });
 
       $("#continuarComprandoBtn").on("click", function(e) {

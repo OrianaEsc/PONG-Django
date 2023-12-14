@@ -14,10 +14,11 @@ urlpatterns = [
 
     path('tipocamp/', views.tipocamp, name='tipocamp'),
     path('accounts/register/', views.register, name='registrarse'),
-    path('carro/', views.Carrito, name='carro'),
+#    path('carro/', views.Carrito, name='carro'),
     path('accounts/logout/', views.mi_logout, name='logout'),
     path('factura/', views.FacturaFinal, name='factura'),
     path('tipopago/', views.tipopago, name='tipopago'),
     path('accounts/', include('django.contrib.auth.urls')),
+
 
 ]

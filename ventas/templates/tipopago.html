@@ -2,31 +2,33 @@
 
 {% block content %}
 <div>
-  <h2 style="text-align: center;">Carrito de Compras</h2>
-  <h1> Usted está comprando: </h1>
+  <br>
+  <h1 style="text-align: center;" id="titulo"> <b> CARRITO DE COMPRAS</b></h1>
+  <h3> Usted está comprando: </h3>
+  <br>
   <div id="productoSeleccionado"></div>
   <div id="productoInfo"></div>
-  <p>Total a pagar: <span id="totalPagar">0</span></p>
+  <h5 id="titulo"> <b>TOTAL A PAGAR: </b> <span id="totalPagar">0</span></h5>
   
-  <h1>Seleccione la forma de pago: </h1>
-
-  <button>
-    <a href="{% url 'factura' %}"> Efectivo o depósito bancario </a>
-  </button>
-
-  <button>
-    <a href="{% url 'factura' %}"> Paypal </a>
-  </button>
-
-  <button>
-    <a href="{% url 'factura' %}"> Mercado Pago </a>
-  </button>
-
+  <h3>Seleccione la forma de pago: </h3>
+  <br>
+  <div class="login-form">
+    <br>
+    <button  class="btn btn-light">
+      <a href="{% url 'factura' %}" > <b>Efectivo o depósito bancario </b> </a>
+    </button> <br>
+    <button  class="btn btn-light">
+      <a href="{% url 'factura' %}"> <b> Paypal</b>  </a>
+    </button> <br>
+    <button class="btn btn-light" >
+      <a href="{% url 'factura' %}"> <b>Mercado Pago  </b> </a>
+    </button> <br>
+  </div>
 </div>
-
+<br>
 <div>
-  <button id="vaciarLista" type="submit" id="botontres">
-    <a href="{% url 'tipocamp' %}">CANCELAR COMPRA</a>
+  <button id="vaciarLista" type="submit" class="btn btn-danger">
+    <a href="{% url 'tipocamp' %}"  style="color: white" id="logo"> <b>CANCELAR COMPRA </b></a>
   </button>
 </div>
 

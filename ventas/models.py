@@ -24,10 +24,8 @@ class Empleados(models.Model):
     tel_emp = models.CharField(max_length=22)
     dom_emp = models.CharField(max_length=40)
 class Ventas(models.Model):
-    user_cli = models.ForeignKey(User, on_delete=models.CASCADE)
-    # cliente = models.ForeignKey("Clientes", on_delete=models.CASCADE)
+    cliente = models.ForeignKey("Clientes", on_delete=models.CASCADE)
     campana = models.ForeignKey("Campanas", on_delete=models.CASCADE)
-    # empleado = models.ForeignKey("Empleados", on_delete=models.DO_NOTHING)
 
 class FacturaFinal(models.Model):
     cliente = models.ForeignKey('Clientes', on_delete=models.CASCADE)
@@ -50,7 +48,6 @@ class Detalles (models.Model):
     # forma_pago = models.ForeignKey("FormaPago", on_delete=models.DO_NOTHING)
     fecha = models.DateField(auto_now_add=True)
     hora = models.TimeField(auto_now_add=True)
-
 
 class Cajas (models.Model):
     empleado = models.ForeignKey("Empleados", on_delete=models.DO_NOTHING)

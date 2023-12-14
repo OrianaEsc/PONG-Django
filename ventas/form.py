@@ -17,4 +17,3 @@ class LoginForm(forms.Form):
 
 class Factura(forms.Form):
     model = FacturaFinal
-    

@@ -4,20 +4,43 @@
 
 {% block content %}
 
-<title>Factura</title>
+<br>
+<h1 id="titulo"> <b>FACTURA </b></h1>
+<br>
+<div class="blanco">
+  <p style= "color: black"><span id="fecha"></span></p>
+  <p style= "color: black"><span id="hora"></span></p>
+  <p style= "color: black">Cliente:
+    {{ firstname }}
+    {{ lastname }}
+    <br>
+    Email: {{ email }}
 
-<h1 id="titulo">FACTURA</h1>
+  </p>
 
-<h2> Comprobante de pago </h2>
-<p> Fecha: 14/12/2023</p>
-<p>Hora: </p>
-<div id="productoSeleccionadoFactura"></div>
-<div id="productoInfo"></div>
-<p>Cliente: </p>
 
-{% for e in user %}
+      <script>
+          const fechaElemento = document.getElementById('fecha');
+          const horaElemento = document.getElementById('hora');
+
+          function mostrarFechaHora() {
+              const fechaHoraActual = new Date();
+              const fechaFormateada = fechaHoraActual.toLocaleDateString(); // Formatea la fecha
+              const horaFormateada = fechaHoraActual.toLocaleTimeString(); // Formatea la hora
+
+              fechaElemento.textContent = `Fecha: ${fechaFormateada}`;
+              horaElemento.textContent = `Hora: ${horaFormateada}`;
+          }
+
+          mostrarFechaHora();
+      </script>
+    <h5 id="factura"> <b>DETALLE </b>  </h5>
+    <div id="productoSeleccionadoFactura"></div>
+    <div id="productoInfo"></div>
+  </div>
+{% comment %} {% for e in user %}
   <p>{{ e.nombre_cli }}</p>
-{% endfor %}
+{% endfor %} {% endcomment %}
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 

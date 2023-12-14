@@ -149,7 +149,7 @@ p{
 
 #inicio{
     text-align: right;
-    padding: 20px 40px;
+    padding: 20px 30px;
 }
 
 
@@ -166,13 +166,6 @@ p{
     margin-bottom: 10px; 
 }
 
-.imgserv {
-    width: 50%;
-    max-width: 400px;
-    height: auto;
-    padding: 2px 8px;
-    border-radius: 15%;
-}
 
 .box{
     background-color:#b44715;
@@ -224,3 +217,20 @@ td {
     padding: 50px;
 }
 
+.blanco{
+    background-color: white;
+    border-radius: 10px;
+    border-color: #8f8f8f;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 20px;
+    width: 35%; 
+    max-width: 800px;
+    margin: 0 auto; 
+    text-align: left;
+}
+
+#factura{
+    text-align: center;
+    font-family: Arial;
+}
