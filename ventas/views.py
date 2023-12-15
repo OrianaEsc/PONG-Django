@@ -70,16 +70,12 @@ def FacturaFinal(request):
 
     return render(request, 'factura.html', context)
 
-# def FacturaFinal(request):
-#     user = User.objects.all()
-#     campana = Campanas.objects.all()
+def obtener_id_usuario(request):
+    id_cliente = None
+    if request.user.is_authenticated:
+        id_cliente = request.user.id
 
-#     context = {
-#         'user' : request.user.username, 
-#         'campana' : campana
-#     }
-
-#     return render (request, 'factura.html', context)
+    return render(request, 'factura.html', {'id_cliente': id_cliente})
 
 def register(request):
     if request.method=='GET':
