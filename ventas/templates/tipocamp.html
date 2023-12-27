@@ -83,20 +83,16 @@
         var nombre = $(this).data("nombre");
         var descripcion = $(this).data("descripcion");
         var monto = $(this).data("monto");
-        var idProducto = $(this).data("id");
 
         // Obtén la lista de productos del localStorage
         var productos = JSON.parse(localStorage.getItem("productosSeleccionados")) || [];
-        var idsProductos = JSON.parse(localStorage.getItem("idsProductos")) || [];
 
         // Agrega el producto actual a la lista
         var producto = { nombre: nombre, descripcion: descripcion, monto: monto };
         productos.push(producto);
-        idsProductos.push(idProducto);
 
         // Almacena la lista actualizada en localStorage
         localStorage.setItem("productosSeleccionados", JSON.stringify(productos));
-        localStorage.setItem("idsProductos", JSON.stringify(idsProductos));
 
         alert('Campaña añadida al carrito');
       });
@@ -114,7 +110,6 @@
             )}&monto=${encodeURIComponent(p.monto)}`
         )
         .join("&");
-      var idsProductos = JSON.parse(localStorage.getItem("idsProductos")) || [];
       window.location.href = "{% url 'tipopago' %}?" + params;
       });
     });

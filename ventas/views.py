@@ -66,16 +66,13 @@ def FacturaFinal(request):
     firstname = request.user.first_name
     email = request.user.email 
 
-    context = {'lastname': lastname, 'firstname': firstname, 'email': email}
-
-    return render(request, 'factura.html', context)
-
-def obtener_id_usuario(request):
     id_cliente = None
     if request.user.is_authenticated:
         id_cliente = request.user.id
 
-    return render(request, 'factura.html', {'id_cliente': id_cliente})
+    context = {'lastname': lastname, 'firstname': firstname, 'email': email, 'id_cliente': id_cliente}
+
+    return render(request, 'factura.html', context)
 
 def register(request):
     if request.method=='GET':
@@ -97,69 +94,6 @@ def register(request):
             return redirect('inicio')
         else:
             return render(request, 'registration/register.html', {'form': form})
-    # datos = {'form': FormClientes(request.POST)}
-    # return render (request, 'registrarse.html', datos)
-    
-
-#     def get (self, request):
-#         form = UserCreationForm()
-#         return render (request, 'registrarse.html', {"form" : form })
-#         # datos = {'form': FormClientes(request.POST)}
-#         # return render (request, 'registrarse.html', datos)
-# #     def post(self, request): 
-# #         form = UserCreationForm(request.post)
-
-# #         if form.is_valid():
-
-# #             usuario= form.save()
-
-# #             login(request, usuario)
-
-# #             return redirect('inicio')
-        
-# #         else: 
-# #             pass
-
-#    if request.method == 'GET':
-#        return render(request, 'registrarse.html', {'form': FormClientes})
-
-#    if request.method == 'POST':
-#        form = FormClientes(request.POST, request.FILES)
-#        if form.is_valid():
-#            user = form.save(commit=True)
-#            user.save()
-            
-#            group = Group.objects.get(name='Clientes')
-#            user.groups.add(group)
-
-            # Autenticación manual del usuario creado
-#            user = _Authenticator(
-#                email = form.cleaned_data['email'],
-#                password = form.cleaned_data['password1']       
-#            )
-#            login(request, user)
-
-            # Redireccion a la pagina principal
-#            return redirect('inicio')
-#        else:
-#            for msg in form.error_messages:
-#                messages.error(request, form.error_messages)
-
-#                return render(request, "inicio.html", { "form", {form}})
-
-
-
-
-
-
-# def carrito(request):
-#     datos = {}
-#     carrito = carro(request)
-#     # carro = carrito.get_carrito()
-#     print('carro', carrito.get_carrito())
-#     return render (request, 'carrito.html', datos)
-
-# EXEQUIEL
 
 def agregar_producto(request, producto_id):
 
@@ -187,15 +121,3 @@ def restar_producto(request, producto_id):
 
     carro.restar(producto=Productos)
     return redirect("tienda")
-
-
-
-
-# def carrito(request):
-#     print(request)
-    # carro = carro(request)
-    # print(carro)
-    # items = carro.get_items()
-    # datos = {'items': items}
-    # return render(request, 'carrito.html', datos)
-

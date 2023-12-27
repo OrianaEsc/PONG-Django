@@ -38,8 +38,6 @@
   // Recupera la lista de productos del localStorage
   var productos = JSON.parse(localStorage.getItem("productosSeleccionados")) || [];
   console.log(productos); // Verifica la lista de productos en la consola
-  var idsProductos = JSON.parse(localStorage.getItem("idsProductos")) || [];
-  console.log(idsProductos)
 
   // Guarda la información en el localStorage para ser recuperada en la página de factura
   localStorage.setItem("productosParaFactura", JSON.stringify(productos));
@@ -50,7 +48,6 @@
 
   // Limpiar la lista de productos en el localStorage después de mostrar
   localStorage.removeItem("productosSeleccionados");
-  localStorage.removeItem("idsProductos");
 
   // Utiliza una variable para rastrear si el contenido ya se mostró
   var contenidoMostrado = true;

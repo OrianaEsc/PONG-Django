@@ -18,7 +18,6 @@
 
   </p>
 
-
       <script>
           const fechaElemento = document.getElementById('fecha');
           const horaElemento = document.getElementById('hora');
@@ -48,8 +47,6 @@
   // Recupera la lista de productos del localStorage
   var productosParaFactura = JSON.parse(localStorage.getItem("productosParaFactura")) || [];
   console.log(productosParaFactura); // Verifica la lista de productos en la consola
-  var idsProductos = JSON.parse(localStorage.getItem("idsProductos")) || [];
-  console.log(idsProductos)
 
   // Genera el contenido HTML para los productos seleccionados en la factura
   var productoSeleccionadoDiv = document.getElementById("productoSeleccionadoFactura");

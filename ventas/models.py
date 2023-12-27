@@ -23,6 +23,7 @@ class Empleados(models.Model):
     dni_emp = models.CharField(max_length=9)
     tel_emp = models.CharField(max_length=22)
     dom_emp = models.CharField(max_length=40)
+    
 class Ventas(models.Model):
     cliente = models.ForeignKey("Clientes", on_delete=models.CASCADE)
     campana = models.ForeignKey("Campanas", on_delete=models.CASCADE)
